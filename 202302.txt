@@ -1,0 +1,8 @@
+20230227
+
+https://github.com/o-oconnell/minixfromscratch を見る。
+
+$ ./mountminix3.sh
+とやると
+unknown filesystem type 'minix'.
+となってしまう

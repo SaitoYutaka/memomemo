@@ -4,3 +4,9 @@ Virtual boxでUbuntuをインストール
 インストールするときに画面が見切れてボタンが押せず。
 調べたら、Alt + F7で画面を移動できることを初めて知る。
 
+20230302
+
+Virtual box内のUbuntuで
+https://github.com/o-oconnell/minixfromscratch
+をqemuで実行してその中でカーネルのビルド(make world)。
+古いPC & Virtual box なので遅い。

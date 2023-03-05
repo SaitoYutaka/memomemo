@@ -10,3 +10,15 @@ Virtual box内のUbuntuで
 https://github.com/o-oconnell/minixfromscratch
 をqemuで実行してその中でカーネルのビルド(make world)。
 古いPC & Virtual box なので遅い。
+
+20230305
+
+minix + gdb でブレークはって、ステップ実行、みたいなことをしようと調べるも方法がわからず。
+(-s -Sをつけてqemuを起動して、target remote :1234で接続まではできるが)
+
+https://www.sugawara-lab.jp/fig/xv6-riscv-jpn.pdf
+と
+https://github.com/mit-pdos/xv6-public
+で遊べるのではないか。
+
+

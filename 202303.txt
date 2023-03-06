@@ -21,4 +21,7 @@ https://www.sugawara-lab.jp/fig/xv6-riscv-jpn.pdf
 https://github.com/mit-pdos/xv6-public
 で遊べるのではないか。
 
+20230306
 
+memo
+https://doc.redox-os.org/book/

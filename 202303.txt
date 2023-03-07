@@ -25,3 +25,12 @@ https://github.com/mit-pdos/xv6-public
 
 memo
 https://doc.redox-os.org/book/
+
+20230307
+
+build-idをプログラム内から参照する方法がないか調べる
+int main() {printf("%d", /*ここでnote section参照*/ );} 
+みたいになことできないか。
+
+以下が参考になるか？
+https://interrupt.memfault.com/blog/gnu-build-id-for-firmware

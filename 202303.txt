@@ -34,3 +34,10 @@ int main() {printf("%d", /*ここでnote section参照*/ );}
 
 以下が参考になるか？
 https://interrupt.memfault.com/blog/gnu-build-id-for-firmware
+
+
+20230307
+
+memo
+https://github.com/vvaltchev/tilck
+

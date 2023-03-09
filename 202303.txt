@@ -41,3 +41,8 @@ https://interrupt.memfault.com/blog/gnu-build-id-for-firmware
 memo
 https://github.com/vvaltchev/tilck
 
+20230308
+
+xxd コマンドについて調べる
+xargs コマンドについて調べる。 memo ***** | xargs -I {f} find ./ -name "{f}" とか。
+

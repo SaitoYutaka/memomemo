@@ -46,3 +46,9 @@ https://github.com/vvaltchev/tilck
 xxd コマンドについて調べる
 xargs コマンドについて調べる。 memo ***** | xargs -I {f} find ./ -name "{f}" とか。
 
+
+20230312
+
+https://github.com/vvaltchev/tilck
+をWSL上でビルド、qemuの起動までしてみる。
+

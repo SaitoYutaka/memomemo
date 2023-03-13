@@ -52,3 +52,10 @@ xargs コマンドについて調べる。 memo ***** | xargs -I {f} find ./ -na
 https://github.com/vvaltchev/tilck
 をWSL上でビルド、qemuの起動までしてみる。
 
+
+20230313
+
+https://www.gnu.org/software/make/manual/html_node/Wildcard-Function.html
+これ、こうなったのわりと最近？
+https://lists.gnu.org/archive/html/help-make/2020-01/msg00012.html
+Ver 4.3 くらいからかな。

@@ -59,3 +59,25 @@ https://www.gnu.org/software/make/manual/html_node/Wildcard-Function.html
 これ、こうなったのわりと最近？
 https://lists.gnu.org/archive/html/help-make/2020-01/msg00012.html
 Ver 4.3 くらいからかな。
+
+
+20230318
+
+Spresense Windows11(WSL2)向けセットアップ
+"https://developer.sony.com/develop/spresense/docs/sdk_set_up_ja.html#_windows11wsl2%E5%90%91%E3%81%91%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97"
+をやる。
+
+WSL上でUSBの認識方法がよくわからなかった。
+これを使うらしい。
+https://github.com/dorssel/usbipd-win
+
+手順通りに実施すると以下のワーニング。
+usbipd wsl attach --busid 2-1
+usbipd: warning: A third-party firewall may be blocking the connection; ensure TCP port 3240 is allowed.
+
+ポートを開けて解決。(インストールしてたセキュリティソフトがポートふさいでた)
+
+
+
+
+

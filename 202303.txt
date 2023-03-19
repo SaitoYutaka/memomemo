@@ -79,5 +79,8 @@ usbipd: warning: A third-party firewall may be blocking the connection; ensure T
 
 
 
+20230319
 
-
+nuttx/arch/arm/src/armv7-m/Toolchain.defs
+を見る。
+clangも使えるようになってるか？

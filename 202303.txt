@@ -88,6 +88,11 @@ clangも使えるようになってるか？
 
 20230320
 
+nuttxをclangでビルドしようとしたら
+armv7em_hard_fpv4_sp_d16_nosysがない、とエラーが出た。
+
 https://clang.llvm.org/docs/UsersManual.html#configuration-files
 というオプションがある
+
+armv7em_hard_fpv4_sp_d16_nosysはコンパイラに渡す引数を書くファイル、というところか。な
 

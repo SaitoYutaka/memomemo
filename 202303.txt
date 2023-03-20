@@ -84,3 +84,10 @@ usbipd: warning: A third-party firewall may be blocking the connection; ensure T
 nuttx/arch/arm/src/armv7-m/Toolchain.defs
 を見る。
 clangも使えるようになってるか？
+
+
+20230320
+
+https://clang.llvm.org/docs/UsersManual.html#configuration-files
+というオプションがある
+

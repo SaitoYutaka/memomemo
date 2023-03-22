@@ -96,3 +96,27 @@ https://clang.llvm.org/docs/UsersManual.html#configuration-files
 
 armv7em_hard_fpv4_sp_d16_nosysはコンパイラに渡す引数を書くファイル、というところか。な
 
+
+
+20230322
+
+armv7em_hard_fpv4_sp_d16_nosysの内容を以下にして、
+
+-target armv7e-m-none-none-eabi
+
+-I $HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/include/c++/v1/
+-I $HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/include/c++/v1/experimental/
+-I $HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/include/x86_64-unknown-linux-gnu/c++/v1/
+
+
+makeしたら
+以下のエラー
+
+
+CC:  stdio/lib_dtoa_engine.c
+stdio/lib_dtoa_engine.c:85:12: error: call to undeclared function 'isnan'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  else if (isnan(x))
+           ^
+stdio/lib_dtoa_engine.c:89:12: error: call to undeclared function 'isinf'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  else if (isinf(x))
+           ^

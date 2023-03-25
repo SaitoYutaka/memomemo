@@ -120,3 +120,51 @@ stdio/lib_dtoa_engine.c:85:12: error: call to undeclared function 'isnan'; ISO C
 stdio/lib_dtoa_engine.c:89:12: error: call to undeclared function 'isinf'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
   else if (isinf(x))
            ^
+
+
+20230325
+
+きちんと調べてみる。
+gcc, clangで -vオプションをつけてインクルードパスの比較
+
+gcc
+
+ignoring duplicate directory "$HOME/spresenseenv/usr/bin/../lib/gcc/../../lib/gcc/arm-none-eabi/10.3.1/include"
+ignoring nonexistent directory "$HOME/spresenseenv/usr/bin/../arm-none-eabi/usr/local/include"
+ignoring duplicate directory "$HOME/spresenseenv/usr/bin/../lib/gcc/../../lib/gcc/arm-none-eabi/10.3.1/include-fixed"
+ignoring duplicate directory "$HOME/spresenseenv/usr/bin/../lib/gcc/../../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include"
+ignoring nonexistent directory "$HOME/spresenseenv/usr/bin/../arm-none-eabi/usr/include"
+ignoring duplicate directory "$HOME/spresense/nuttx/sched"
+#include "..." search starts here:
+#include <...> search starts here:
+
+ .
+ $HOME/spresense/nuttx/include
+ $HOME/spresense/nuttx/../sdk/include
+ $HOME/spresenseenv/usr/bin/../lib/gcc/arm-none-eabi/10.3.1/include
+ $HOME/spresenseenv/usr/bin/../lib/gcc/arm-none-eabi/10.3.1/include-fixed
+ $HOME/spresenseenv/usr/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include
+ 
+clang
+
+ignoring nonexistent directory "$HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/bin/../lib/clang-runtimes/armv7e-m-none-none-eabi/include"
+ignoring duplicate directory "."
+ignoring duplicate directory "$HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/lib/clang/16/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ $HOME/spresense/nuttx/include/nuttx
+ $HOME/spresense/nuttx/arch/arm/include
+ $HOME/spresense/sdk/include/arch
+ $HOME/spresense/nuttx/include/nuttx/lib
+ .
+ $HOME/spresense/nuttx/include
+ $HOME/spresense/nuttx/../sdk/include
+ $HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/lib/clang/16/include
+
+
+$HOME/spresense/nuttx/tools/Config.mk のいかに -vを追加し確認中
+
+define COMPILE
+	@echo "CC: $1"
+	$(Q) $(CC) -v -c $(CFLAGS) $($(strip $1)_CFLAGS) $1 -o $2
+endef

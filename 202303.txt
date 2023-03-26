@@ -168,3 +168,58 @@ define COMPILE
 	@echo "CC: $1"
 	$(Q) $(CC) -v -c $(CFLAGS) $($(strip $1)_CFLAGS) $1 -o $2
 endef
+
+
+20230326
+
+armv7em_hard_fpv4_sp_d16_nosysの中を以下のようにした。
+
+-target armv7e-m-none-none-eabi
+
+-mthumb
+
+-nostdinc
+
+-I $HOME/spresense/sdk/apps/include
+-I $HOME/spresense/nuttx/include/
+-I $HOME/spresense/nuttx/../sdk/include/
+
+-I $HOME/spresense/nuttx/include/nuttx/lib/
+-I $HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/include/c++/v1/
+-I $HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/include/c++/v1/experimental/
+-I $HOME/clang+llvm-16.0.0-x86_64-linux-gnu-ubuntu-18.04/include/x86_64-unknown-linux-gnu/c++/v1/
+
+
+そうすることでmakeした結果、
+
+LD: nuttx
+ld.lld: error: undefined symbol: __aeabi_ldivmod
+>>> referenced by clock_time2ticks.c:73 ($HOME/spresense/nuttx/libs/libc/sched/clock_time2ticks.c:73)
+>>>               clock_time2ticks.o:(clock_time2ticks) in archive $HOME/spresense/nuttx/staging/libc.a
+
+ld.lld: error: undefined symbol: __aeabi_uldivmod
+>>> referenced by lib_ultoa_invert.c:65 ($HOME/spresense/nuttx/libs/libc/stdio/lib_ultoa_invert.c:65)
+>>>               lib_ultoa_invert.o:(__ultoa_invert) in archive $HOME/spresense/nuttx/staging/libc.a
+>>> referenced by sig_timedwait.c:299 ($HOME/spresense/nuttx/sched/signal/sig_timedwait.c:299)
+>>>               sig_timedwait.o:(nxsig_timedwait) in archive $HOME/spresense/nuttx/staging/libsched.a
+>>> referenced by cxd56_delay.c
+>>>               cxd56_delay.o:(OUTLINED_FUNCTION_0) in archive $HOME/spresense/nuttx/staging/libarch.a
+>>> referenced 16 more times
+
+ld.lld: error: undefined symbol: __aeabi_llsl
+>>> referenced by cxd56_backuplog.c:145 ($HOME/spresense/nuttx/arch/arm/src/chip/cxd56_backuplog.c:145)
+>>>               cxd56_backuplog.o:(up_backuplog_alloc) in archive $HOME/spresense/nuttx/staging/libarch.a
+>>> referenced by cxd56_backuplog.c:297 ($HOME/spresense/nuttx/arch/arm/src/chip/cxd56_backuplog.c:297)
+>>>               cxd56_backuplog.o:(up_backuplog_free) in archive $HOME/spresense/nuttx/staging/libarch.a
+>>> referenced by cxd56_backuplog.c:299 ($HOME/spresense/nuttx/arch/arm/src/chip/cxd56_backuplog.c:299)
+>>>               cxd56_backuplog.o:(up_backuplog_free) in archive $HOME/spresense/nuttx/staging/libarch.a
+
+ld.lld: warning: address (0xd025f6c) of section .data is not a multiple of alignment (16)
+ld.lld: warning: address (0xd026154) of section .bss is not a multiple of alignment (1024)
+make[2]: *** [Makefile:159: nuttx] Error 1
+make[2]: Leaving directory '$HOME/spresense/nuttx/arch/arm/src'
+make[1]: *** [tools/Unix.mk:509: nuttx] Error 2
+make[1]: Leaving directory '$HOME/spresense/nuttx'
+make: *** [Makefile:117: all] Error 2
+
+コンパイルまではできたのではないか。リンクで失敗している。

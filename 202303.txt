@@ -223,3 +223,9 @@ make[1]: Leaving directory '$HOME/spresense/nuttx'
 make: *** [Makefile:117: all] Error 2
 
 コンパイルまではできたのではないか。リンクで失敗している。
+
+20230327
+
+https://github.com/llvm/llvm-project/blob/main/llvm/docs/HowToCrossCompileBuiltinsOnArm.rst
+を読んている
+

@@ -262,3 +262,23 @@ $ file lib/linux/libclang_rt.builtins-armhf.a
 lib/linux/libclang_rt.builtins-armhf.a: current ar archive
 
 これでよいのか。
+
+
+20230331
+
+~/spresense/sdkで以下を実行
+make EXTRA_LIBS=＄HOME/llvm-project/build-compiler-rt/lib/linux/libclang_rt.builtins-armhf.a
+(ワーニングがいくつか出る。)
+
+powershellで以下を実行
+usbipd wsl attach --busid 2-1
+
+WSL上で以下
+sudo tools/flash.sh -c /dev/ttyUSB0 nuttx.spk
+sudo screen /dev/ttyUSB0 115200
+
+ctrl-a k でscreenの終了。
+
+
+
+

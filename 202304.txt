@@ -1,0 +1,7 @@
+20230410
+
+nginx + gitbucket の環境を作る。
+
+https://github.com/SaitoYutaka/Build-Spresense-with-clang/blob/main/README.md
+もちょくちょく書いていく
+

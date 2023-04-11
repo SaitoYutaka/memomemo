@@ -15,3 +15,7 @@ https://unix.stackexchange.com/questions/1670/how-can-i-use-ffmpeg-to-split-mpeg
 ffmpeg -i input.mp4 -c copy -map 0 -segment_time 00:20:00 -f segment output%03d.mp4
 
 とかでできる、と。
+
+ちがうな、
+ffmpeg -i input.mp4 -ss 00:00:00 -to 00:10:00 -c copy output1.mp4
+これか。
